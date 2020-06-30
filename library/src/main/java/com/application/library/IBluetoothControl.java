@@ -43,7 +43,7 @@ class BluetoothDevice {
 
 }
 
-public interface BluetoothControl {
+public interface IBluetoothControl {
 
     /**
      * 向已连接的蓝牙设备写入数据流
