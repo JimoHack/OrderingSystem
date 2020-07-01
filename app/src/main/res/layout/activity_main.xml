@@ -13,7 +13,8 @@
         android:layout_height="0dp"
         android:layout_weight="90"
         android:weightSum="100"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:baselineAligned="false">
         <ListView
             android:id="@+id/lv_food_classification"
             android:layout_width="0dp"
@@ -45,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="¥100.00"
-                android:textSize="56sp"
+                android:textSize="40sp"
                 android:textColor="#BD2A2A"/>
         </LinearLayout>
         <LinearLayout
