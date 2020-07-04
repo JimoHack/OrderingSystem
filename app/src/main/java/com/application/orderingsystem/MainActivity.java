@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         buff = buff + "tot: " + totCost + " $.";
         Toast.makeText(this, buff, Toast.LENGTH_SHORT).show();
         try {
-            bluetoothControl.write(buff+"\n") ;
+            bluetoothControl.write(buff+"\n\n") ;
         } catch (Exception e) {
             AlertDialog.Builder builder  = new AlertDialog.Builder(MainActivity.this);
             builder.setTitle("发送菜单错误" ) ;
