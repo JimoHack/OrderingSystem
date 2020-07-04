@@ -42,28 +42,28 @@ public class MainActivity extends AppCompatActivity {
     BluetoothControl bluetoothControl ;
     Item.Food[][] foods = {
             {
-                    new Item.Food(R.drawable.food_item_0_0, "大盘鸡",12,"微辣｜鸡肉", "月售495   好评度93%","一人份"),
-                    new Item.Food(R.drawable.food_item_0_1, "东坡肉",20,"酱汁|猪肉", "月售378   好评度95%","一人份"),
-                    new Item.Food(R.drawable.food_item_0_2, "红烧狮子头",15,"酱汁|猪肉", "月售398   好评度97%","一人份"),
-                    new Item.Food(R.drawable.food_item_0_3, "辣子鸡",30,"重辣|鸡肉", "月售427   好评度98%","二人份"),
-                    new Item.Food(R.drawable.food_item_0_4, "水煮鱼",18,"中辣｜鱼肉", "月售227   好评度94%","一人份"),
-                    new Item.Food(R.drawable.food_item_0_5, "鸡汤煮干丝",16,"麻香|鸡肉", "月售487   好评度99%","二人份"),
+                    new Item.Food(R.drawable.food_item_0_0, "大盘鸡","DaPanJi",12,"微辣｜鸡肉", "月售495   好评度93%","一人份"),
+                    new Item.Food(R.drawable.food_item_0_1, "东坡肉","DongPoRou",20,"酱汁|猪肉", "月售378   好评度95%","一人份"),
+                    new Item.Food(R.drawable.food_item_0_2, "红烧狮子头","SiXiWanZi",15,"酱汁|猪肉", "月售398   好评度97%","一人份"),
+                    new Item.Food(R.drawable.food_item_0_3, "辣子鸡","LaZiJi",30,"重辣|鸡肉", "月售427   好评度98%","二人份"),
+                    new Item.Food(R.drawable.food_item_0_4, "水煮鱼","ShuiZhuYu",18,"中辣｜鱼肉", "月售227   好评度94%","一人份"),
+                    new Item.Food(R.drawable.food_item_0_5, "鸡汤煮干丝","JiTangGanSi",16,"麻香|鸡肉", "月售487   好评度99%","二人份"),
             },
             {
-                    new Item.Food(R.drawable.food_item_1_0, "酱汁拍黄瓜",10,"酱汁|黄瓜", "月售303   好评度94%","一人份"),
-                    new Item.Food(R.drawable.food_item_1_1, "树胶土豆丝",8,"微辣｜土豆", "月售314   好评度92%","一人份"),
+                    new Item.Food(R.drawable.food_item_1_0, "酱汁拍黄瓜","PaiHuangGua",10,"酱汁|黄瓜", "月售303   好评度94%","一人份"),
+                    new Item.Food(R.drawable.food_item_1_1, "树胶土豆丝","TuDouSi",8,"微辣｜土豆", "月售314   好评度92%","一人份"),
 
             },
             {
-                    new Item.Food(R.drawable.food_item_2_0, "双层牛肉堡",15,"微辣｜牛肉", "月售514   好评度97%","一人份"),
-                    new Item.Food(R.drawable.food_item_2_1, "芝士火腿披萨",35,"芝士｜火腿", "月售214   好评度96%","二人份"),
+                    new Item.Food(R.drawable.food_item_2_0, "双层牛肉堡","Hamburg",15,"微辣｜牛肉", "月售514   好评度97%","一人份"),
+                    new Item.Food(R.drawable.food_item_2_1, "芝士火腿披萨","Pizza",35,"芝士｜火腿", "月售214   好评度96%","二人份"),
             },
             {
-                    new Item.Food(R.drawable.food_item_3_0, "米饭",3,"大米", "月售533   好评度94%","一人份"),
+                    new Item.Food(R.drawable.food_item_3_0, "米饭","Rice",3, "大米","月售533   好评度94%","一人份"),
             },
             {
-                    new Item.Food(R.drawable.food_item_4_0, "百威啤酒",5,"微辣｜鸡肉", "月售363   好评度98%","一听"),
-                    new Item.Food(R.drawable.food_item_4_1, "酸梅汤",4,"微辣｜鸡肉", "月售337   好评度96%","一杯"),
+                    new Item.Food(R.drawable.food_item_4_0, "百威啤酒","Beer",5,"微辣｜鸡肉", "月售363   好评度98%","一听"),
+                    new Item.Food(R.drawable.food_item_4_1, "酸梅汤","Soup",4,"微辣｜鸡肉", "月售337   好评度96%","一杯"),
             },
     };
 
@@ -175,13 +175,18 @@ public class MainActivity extends AppCompatActivity {
         String buff = "";
         for (HashMap.Entry<String, Integer> entry :
                 items.entrySet()) {
-            buff = buff + (entry.getKey() + ": " + entry.getValue() + "份\r\n");
+            buff = buff + (entry.getKey() + ": " + entry.getValue() + "\n");
         }
-        buff = buff + "总价: " + totCost + "¥";
+        buff = buff + "tot: " + totCost + " $.";
         Toast.makeText(this, buff, Toast.LENGTH_SHORT).show();
         try {
-            bluetoothControl.write(buff+"\r\n") ;
-        } catch (IOException e) {
+            bluetoothControl.write(buff+"\n") ;
+        } catch (Exception e) {
+            AlertDialog.Builder builder  = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("发送菜单错误" ) ;
+            builder.setMessage(e.toString()) ;
+            builder.setPositiveButton("确定" ,  null );
+            builder.show();
             e.printStackTrace();
         }
         Log.d("MAIN-DEBUG",buff);
@@ -194,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
        ///Toast.makeText(this, tvName.getText()+","+refMap.get(tvName.getText().toString()), Toast.LENGTH_SHORT).show();
        int id = Integer.parseInt(String.valueOf(refMap.get(tvName.getText().toString()))) ;
        Item.Food food = foods[tabId][id] ;
-       String name = food.getName()+"¥"+food.getPrice() ;
+       String name = food.getEnName()+"$"+food.getPrice() ;
        if(food.getCount() == 0) {
            return ;
        }
@@ -216,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
         ///Toast.makeText(this, tvName.getText()+","+refMap.get(tvName.getText().toString()), Toast.LENGTH_SHORT).show();
         int id = Integer.parseInt(String.valueOf(refMap.get(tvName.getText().toString()))) ;
         Item.Food food = foods[tabId][id] ;
-        String name = food.getName()+"¥"+food.getPrice() ;
+        String name = food.getEnName()+"$"+food.getPrice() ;
         food.add() ;
         totCost += food.getPrice();
         tvCost.setText("¥"+totCost);

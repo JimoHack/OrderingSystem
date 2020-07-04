@@ -50,6 +50,7 @@ public class Item {
 
     static class Food {
         String name = "大盘鸡";
+        String enName = "DaPanJi" ;
         double price = 12.0;
         String description = "一人份";
         String sales = "月售495   好评度93%";
@@ -71,7 +72,7 @@ public class Item {
             return hashMap;
         }
 
-        Food(int image, String name,double price, String label, String sales, String description) {
+        Food(int image, String name,String enName,double price, String label, String sales, String description) {
             setName(name);
             setImage(image);
             setDescription(description);
@@ -79,6 +80,7 @@ public class Item {
             setPrice(price);
             setSales(sales);
             setPrice(price);
+            setEnName(enName);
             count = 0 ;
         }
 
@@ -112,6 +114,11 @@ public class Item {
             return this;
         }
 
+        public Food setEnName(String enName) {
+            this.enName = enName;
+            return this ;
+        }
+
         public Food setDescription(String description) {
             this.description = description;
             return this;
@@ -138,6 +145,10 @@ public class Item {
 
         public String getName() {
             return name;
+        }
+
+        public String getEnName() {
+            return enName;
         }
 
         public double getPrice() {
