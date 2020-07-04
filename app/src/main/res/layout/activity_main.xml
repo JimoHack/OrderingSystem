@@ -1,68 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="100"
-    tools:context=".MainActivity" >
-    
+    tools:context=".MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="90"
-        android:weightSum="100"
+        android:baselineAligned="false"
         android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:weightSum="100">
+
         <ListView
             android:id="@+id/lv_food_classification"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="15"
             tools:ignore="NestedWeights" />
+
         <ListView
             android:id="@+id/lv_food_menu"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="85" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
+        android:baselineAligned="false"
         android:orientation="horizontal"
-        android:weightSum="100"
-        android:baselineAligned="false">
+        android:weightSum="100">
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="50"
-            tools:ignore="NestedWeights,UselessLeaf"
-            >
+            tools:ignore="NestedWeights,UselessLeaf">
+
             <TextView
                 android:id="@+id/tv_cost"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="¥100.00"
-                android:textSize="40sp"
-                android:textColor="#BD2A2A"/>
+                android:textColor="#BD2A2A"
+                android:textSize="40sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="50"
             android:gravity="right"
             tools:ignore="RtlHardcoded,UselessLeaf">
+
             <ImageButton
                 android:id="@+id/bt_ok"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerInside"
                 android:background="#00000000"
-                android:src="@drawable/selected"
-                android:onClick="selectOk"/>
+                android:onClick="selectOk"
+                android:scaleType="centerInside"
+                android:src="@drawable/selected" />
         </LinearLayout>
     </LinearLayout>
 

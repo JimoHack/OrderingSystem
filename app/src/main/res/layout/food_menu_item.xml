@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="128dp"
+    android:orientation="horizontal"
     android:weightSum="100"
     tools:ignore="NestedWeights,ContentDescription">
 
@@ -14,43 +13,43 @@
         android:layout_height="match_parent"
         android:layout_weight="33"
         android:src="@mipmap/ic_launcher" />
-    
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="67"
-        android:weightSum="16"
-        android:orientation="vertical" >
-        
+        android:orientation="vertical"
+        android:weightSum="16">
+
         <TextView
             android:id="@+id/tv_food_name"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="6"
+            android:layout_weight="5"
             android:text="大盘鸡¥12"
-            android:textSize="34sp"
-            android:textColor="#000000" />
-        
+            android:textColor="#000000"
+            android:textSize="28sp" />
+
         <TextView
             android:id="@+id/tv_food_label"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:textSize="18sp"
-            android:text="微辣|鸡肉"/>
+            android:text="微辣|鸡肉"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_food_sales"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
-            android:textSize="19sp"
-            android:text="月售495   好评度93%"/>
+            android:text="月售495   好评度93%"
+            android:textSize="19sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:orientation="horizontal"
             android:weightSum="100">
 
@@ -59,18 +58,17 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="60"
-                android:textSize="18sp"
-                android:textColor="#000000"
                 android:text="一人份"
-                />
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/img_food_sub"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="10"
-                android:src="@drawable/sub"
-                android:onClick="foodItemSub"/>
+                android:onClick="foodItemSub"
+                android:src="@drawable/sub" />
 
             <TextView
                 android:id="@+id/tv_food_count"
@@ -78,17 +76,17 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:gravity="center"
+                android:text="0"
                 android:textColor="#000000"
-                android:textSize="19sp"
-                android:text="0"/>
+                android:textSize="19sp" />
 
             <ImageView
                 android:id="@+id/img_food_add"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="10"
-                android:src="@drawable/add"
-                android:onClick="foodItemAdd"/>
+                android:onClick="foodItemAdd"
+                android:src="@drawable/add" />
 
         </LinearLayout>
 
